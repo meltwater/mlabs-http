@@ -96,7 +96,9 @@
   "engines": {
     "node": ">=8.9.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "got": "^9.2.2"
+  },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.1",
@@ -112,6 +114,7 @@
     "gulp-standard": "^12.0.0",
     "gulp-watch": "^5.0.0",
     "gulplog": "^1.0.0",
+    "nock": "^10.0.0",
     "nodemon": "^1.11.0",
     "npm-run-all": "^4.1.2",
     "nyc": "^13.0.1",
