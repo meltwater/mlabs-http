@@ -10,6 +10,12 @@
 
 HTTP client wrapper around [Got].
 
+The client as an identical API to Got with two exceptions:
+
+- JSON mode is enabled by default.
+- Methods only return the request body
+  unless `resolveWithFullResponse` is set.
+
 [Got]: https://github.com/sindresorhus/got
 
 ## Installation
