@@ -3134,10 +3134,9 @@ got@^6.7.1:
     unzip-response "^2.0.1"
     url-parse-lax "^1.0.0"
 
-got@^9.2.2:
+got@sindresorhus/got:
   version "9.2.2"
-  resolved "https://registry.yarnpkg.com/got/-/got-9.2.2.tgz#d6cb73f40d4cb512864c2f66f275f258ab43aa25"
-  integrity sha512-XLXmtO1QxLuzj6t4JBClWD1NI/bMvsR9utYl0yyPg49eUJjqU7HaQhPDvSVGwYoSbAqsRfe5aNZXHl1Zctzwmw==
+  resolved "https://codeload.github.com/sindresorhus/got/tar.gz/25f18be291dd866a37f5153ca76d44151fcd702b"
   dependencies:
     "@sindresorhus/is" "^0.11.0"
     "@szmarczak/http-timer" "^1.1.0"
@@ -3145,6 +3144,7 @@ got@^9.2.2:
     decompress-response "^3.3.0"
     duplexer3 "^0.1.4"
     get-stream "^4.0.0"
+    lowercase-keys "^1.0.1"
     mimic-response "^1.0.1"
     p-cancelable "^0.5.0"
     to-readable-stream "^1.0.0"

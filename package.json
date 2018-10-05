@@ -98,7 +98,7 @@
   },
   "dependencies": {
     "@meltwater/mlabs-logger": "^5.1.1",
-    "got": "^9.2.2",
+    "got": "sindresorhus/got",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
