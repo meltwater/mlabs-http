@@ -8,7 +8,9 @@
 
 ## Description
 
-HTTP client wrapper around Got.
+HTTP client wrapper around [Got].
+
+[Got]: https://github.com/sindresorhus/got
 
 ## Installation
 
@@ -36,15 +38,15 @@ $ yarn add @meltwater/mlabs-http
 This package provides an async function which checks if its argument is true.
 
 ```js
-import isTrue from '@meltwater/mlabs-http'
+import createHttpClient from '@meltwater/mlabs-http'
 
-const logTrue = async () => {
-  const trueValue = await isTrue(true)
-  console.log(trueValue)
+const logResponse = async () => {
+  const http = createHttpClient({origin: 'https://httpbin.org'})
+  const body = await http.get('/get')
+  console.log(body)
 }
 
-logTrue().catch(err => { console.log(err) })
-// true
+logResponse().catch(err => { console.error(err) })
 ```
 
 ## Development Quickstart
@@ -234,19 +236,17 @@ An HTML version will be saved in `coverage`.
 
 ##### Debugging tests
 
-<!--- TODO: Update all use true.spec.js with added spec. -->
-
 Create a breakpoint by adding the statement `debugger` to the test
 and start a debug session with, e.g.,
 
 ```
-$ yarn run test:inspect lib/true.spec.js
+$ yarn run test:inspect lib/class.spec.js
 ```
 
 Watch and restart the debugging session on changes with
 
 ```
-$ yarn run test:inspect:watch lib/true.spec.js
+$ yarn run test:inspect:watch lib/class.spec.js
 ```
 
 [AVA]: https://github.com/avajs/ava
