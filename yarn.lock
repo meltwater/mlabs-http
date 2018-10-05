@@ -776,6 +776,16 @@
     pino "^5.4.1"
     pino-pretty "^2.1.0"
 
+"@meltwater/mlabs-logger@^5.1.1":
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/@meltwater/mlabs-logger/-/mlabs-logger-5.1.1.tgz#f819799245a3baf492d3b8b7d8270aaa1603baf5"
+  integrity sha512-VfpuuLoj6QCK8a02+jQmVHqMS0zuAoxdwd6BxTWEkQWXWJiHSRSA+EFzccUcQTGuspXDeWbfW4CR9oPOPyzJDw==
+  dependencies:
+    "@meltwater/examplr" "^4.2.0"
+    bunyan-formatter "^1.0.0"
+    debug "^4.0.1"
+    pino "^5.4.0"
+
 "@sindresorhus/is@^0.11.0":
   version "0.11.0"
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.11.0.tgz#a65970040a5b55c4713452666703b92a6c331fdb"
@@ -1977,6 +1987,13 @@ debug@^3.1.0:
   version "3.2.5"
   resolved "https://registry.yarnpkg.com/debug/-/debug-3.2.5.tgz#c2418fbfd7a29f4d4f70ff4cea604d4b64c46407"
   integrity sha512-D61LaDQPQkxJ5AUM2mbSJRbPkNs/TmdmOeLAi1hgDkpDfIfetSrjmWhccwtuResSwMbACjx/xXQofvM9CE/aeg==
+  dependencies:
+    ms "^2.1.1"
+
+debug@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-4.0.1.tgz#f9bb36d439b8d1f0dd52d8fb6b46e4ebb8c1cd5b"
+  integrity sha512-K23FHJ/Mt404FSlp6gSZCevIbTMLX0j3fmHhUEhQ3Wq0FMODW3+cUSoLdy1Gx4polAf4t/lphhmHH35BB8cLYw==
   dependencies:
     ms "^2.1.1"
 
@@ -5199,7 +5216,7 @@ pino-std-serializers@^2.2.1:
   resolved "https://registry.yarnpkg.com/pino-std-serializers/-/pino-std-serializers-2.2.1.tgz#ceb583374358c75949e9c4ddbdd690428c15958e"
   integrity sha512-QqL7kkF7eMCpFG4hpZD8UPQga/kxkkh3E62HzMzTIL4OQyijyisAnBL8msBEAml8xcb/ioGhH7UUzGxuHqczhQ==
 
-pino@^5.4.1:
+pino@^5.4.0, pino@^5.4.1:
   version "5.7.0"
   resolved "https://registry.yarnpkg.com/pino/-/pino-5.7.0.tgz#9ca520788662646877e050e8d0704f71735e1b12"
   integrity sha512-V2ST6/C7KokFH2b94MeN2ItXIu+q948CFAT5JmtbW6H0v3xmZOCJvLyYFWFwrZWgKJd05y/F1EgZcl3clkV/mA==
