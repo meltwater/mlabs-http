@@ -1,7 +1,7 @@
-import { HttpClient } from '../lib'
+import { createHttpClient } from '../lib'
 
 export default ({ log, baseUrl }) => async (url = '/get') => {
-  const client = new HttpClient({ baseUrl })
+  const client = createHttpClient({ baseUrl })
   const { body } = await client.get(url)
   return body
 }
