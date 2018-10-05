@@ -2,10 +2,10 @@ import path from 'path'
 
 import createExamples from '@meltwater/examplr'
 
-import isTrue from './is-true' // TODO: Replace this with added example.
+import get from './get'
 
 export const examples = {
-  isTrue // TODO: Replace this with added example.
+  get
 }
 
 const envVars = [
@@ -14,7 +14,9 @@ const envVars = [
   'LOG_OUTPUT_MODE'
 ]
 
-const defaultOptions = {}
+const defaultOptions = {
+  baseUrl: 'https://httpbin.org'
+}
 
 if (require.main === module) {
   const { runExample } = createExamples({
