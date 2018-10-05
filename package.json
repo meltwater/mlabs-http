@@ -1,7 +1,7 @@
 {
-  "name": "@meltwater/makenew-node-lib",
-  "version": "5.1.0",
-  "description": "npm package skeleton for Meltwater Node.js libraries.",
+  "name": "@meltwater/mlabs-http",
+  "version": "0.0.0",
+  "description": "HTTP client wrapper around Got.",
   "main": "dist/index.js",
   "module": "index.js",
   "sideEffects": false,
@@ -9,9 +9,9 @@
     "meltwater",
     "node"
   ],
-  "homepage": "https://github.com/meltwater/makenew-node-lib",
-  "bugs": "https://github.com/meltwater/makenew-node-lib/issues",
-  "repository": "meltwater/makenew-node-lib",
+  "homepage": "https://github.com/meltwater/mlabs-http",
+  "bugs": "https://github.com/meltwater/mlabs-http/issues",
+  "repository": "meltwater/mlabs-http",
   "license": "SEE LICENSE IN LICENSE.txt",
   "author": {
     "name": "Evan Sosenko",
