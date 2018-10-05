@@ -1,6 +1,6 @@
 {
   "name": "@meltwater/mlabs-http",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "HTTP client wrapper around Got.",
   "main": "dist/index.js",
   "module": "index.js",
