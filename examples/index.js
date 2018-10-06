@@ -3,9 +3,11 @@ import path from 'path'
 import createExamples from '@meltwater/examplr'
 
 import get from './get'
+import post from './post'
 
 export const examples = {
-  get
+  get,
+  post
 }
 
 const envVars = [
