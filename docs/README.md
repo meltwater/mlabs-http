@@ -48,6 +48,56 @@ Create an [HttpClient] with an API compatible with [Got].
 
 (*HttpClient*)
 
+#### Examples
+
+##### JSON requests
+
+```
+import createHttpClient from '@meltwater/mlabs-http'
+
+const http = createHttpClient({origin: 'https://httpbin.org'})
+
+const body = await http.get('/get')
+await http.post('/post', {body: {foo: 'bar'}})
+```
+
+##### Full response
+
+```
+import createHttpClient from '@meltwater/mlabs-http'
+
+const http = createHttpClient({
+  resolveWithFullResponse: true,
+  origin: 'https://httpbin.org'
+})
+
+const { body, statusCode } = await http.get('/get')
+
+// or per request
+
+const http = createHttpClient({
+  resolveWithFullResponse: false,
+  origin: 'https://httpbin.org'
+})
+
+const { body, statusCode } = await http.get('/get', {
+  resolveWithFullResponse: true
+})
+```
+
+##### With custom Got options
+
+```
+import createHttpClient from '@meltwater/mlabs-http'
+
+const http = createHttpClient({
+  extend: {headers: {foo: 'bar'}},
+  origin: 'https://httpbin.org'
+})
+
+const body = await http.get('/get')
+```
+
 ## HttpClient
 
 - Wraps all [Got] methods (except `stream`) with an identical API:
