@@ -37,11 +37,7 @@ $ yarn add @meltwater/mlabs-http
 
 ## Usage
 
-<!--- TODO: Update usage example for added module(s). -->
-
 **See the complete [API documentation](./docs) and [working examples](./examples).**
-
-This package provides an async function which checks if its argument is true.
 
 ```js
 import createHttpClient from '@meltwater/mlabs-http'
