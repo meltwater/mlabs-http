@@ -33,9 +33,10 @@ Create an [HttpClient] with an API compatible with [Got].
     - `origin` (*string*): The HTTP server [URL origin].
       Default: none.
     - `path` (*string*): The path to prefix all requests with.
-      Only used when `origin`
+      Only used when `origin` is set.
       Default: none.
     - `baseUrl` (*string*): The [Got `baseUrl`].
+      Overrides `origin` and `path`.
       Default: none.
     - `bearerToken` (*string*): Token to send in the `authorization` header.
       Default: none.
@@ -61,6 +62,7 @@ Create an [HttpClient] with an API compatible with [Got].
     - `resolveWithFullResponse`
     - `responseLogLevel`
     - `willLogOptions`
+    - `willLogResponse`
 
 ### Constructor
 
@@ -86,7 +88,7 @@ Create an [HttpClient] with an API compatible with [Got].
       Default: false.
     - `responseLogLevel` (*string*): Log level to log successful responses.
       If this level is active, then successful responses
-      will be logged with the full response.
+      will be logged according to `willLogResponse`.
       Default: debug.
     - `log` (*object*): A [Logger].
       Default: a new logger.
@@ -96,3 +98,5 @@ Create an [HttpClient] with an API compatible with [Got].
 [Got `json`]: https://github.com/sindresorhus/got#json
 [Got `baseUrl`]: https://github.com/sindresorhus/got#baseurl
 [`got.extend`]: https://github.com/sindresorhus/got#gotextendoptions
+[URL origin]: https://nodejs.org/api/url.html#url_url_strings_and_url_objects
+[Logger]: https://github.com/meltwater/mlabs-logger
