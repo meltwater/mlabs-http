@@ -91,6 +91,7 @@ Create an [HttpClient] with an API compatible with [Got].
     - `log` (*object*): A [Logger].
       Default: a new logger.
 
+[HttpClient]: #httpclient
 [Got]: https://github.com/sindresorhus/got
 [Got `json`]: https://github.com/sindresorhus/got#json
 [Got `baseUrl`]: https://github.com/sindresorhus/got#baseurl
