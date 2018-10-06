@@ -80,6 +80,10 @@ Create an [HttpClient] with an API compatible with [Got].
       Default: false.
     - `willLogOptions` (*boolean*): If true, log all options under `meta`.
       Default: true.
+    - `willLogRes` (*boolean*): If true, log full response on success,
+      otherwise only log a message.
+      Only relevant if `resLogLevel` is an active level.
+      Default: false.
     - `resLogLevel` (*string*): Log level to log successful responses.
       If this level is active, then successful responses
       will be logged with the full response.
