@@ -134,6 +134,7 @@ Wraps all [Got] methods (except `stream`) with an identical API:
     - `resolveWithFullResponse`
     - `responseLogLevel`
     - `willLogOptions`
+    - `willLogResponseProps`
     - `willLogResponseData`
     - `getLogResponseProps`
     - `getLogResponseData`
@@ -160,18 +161,20 @@ Wraps all [Got] methods (except `stream`) with an identical API:
       Default: debug.
     - `willLogOptions` (*boolean*): If true, log all options under `meta`.
       Default: true.
-    - `willLogResponseData` (*boolean*): If true, log full response on success,
-      otherwise only log a message.
+    - `willLogResponseProps` (*boolean*): If true, log props returned
+      by `getLogResponseProps`.
+      Only relevant if `responseLogLevel` is an active level.
+      Default: true.
+    - `willLogResponseData` (*boolean*): If true, log `data` returned
+      by `getLogResponseData`.
       Only relevant if `responseLogLevel` is an active level.
       Default: false.
-    - `getLogResponseProps` (*function*):
-      Receives the full response from Got and returns an object
-      whose properties will be logged at the top level.
+    - `getLogResponseProps` (*function*): Receives the full response from Got
+      and returns an object whose properties will be logged at the top level.
       Only relevant if `responseLogLevel` is an active level.
       Default: no additional props are logged.
-    - `getLogResponseData` (*function*):
-      Receives the full response from Got and returns an object
-      whose properties will be logged under `data`.
+    - `getLogResponseData` (*function*): Receives the full response from Got
+      and returns an object whose properties will be logged under `data`.
       Only relevant if `responseLogLevel` is an active level
       and `willLogResponseData` is set.
       Default: logs a relevant subset of the full Got response.
