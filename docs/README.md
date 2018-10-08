@@ -157,7 +157,7 @@ Wraps all [Got] methods (except `stream`) with an identical API:
       Default: false.
     - `responseLogLevel` (*string*): Log level to log successful responses.
       If this level is active, then successful responses
-      will be logged according to `willLogResponseData`.
+      will be logged according to the other log response options.
       Default: debug.
     - `willLogOptions` (*boolean*): If true, log all options under `meta`.
       Default: true.
