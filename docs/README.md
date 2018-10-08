@@ -105,12 +105,17 @@ import createHttpClient from '@meltwater/mlabs-http'
 
 const http = createHttpClient({
   origin: 'https://httpbin.org',
+  responseLogLevel: 'info',
   getLogProps: ({body}) => ({myIp: body.origin})
 })
 
 const body = await http.get('/get', {
   meta: {user: {name: 'foo'}},
   logProps: {userId: 123}
+})
+
+// all logs have {userId, meta: {user: {name: 'foo'}}}
+// success log also has {myIp: '127.0.0.1'}
 ```
 
 ## HttpClient
