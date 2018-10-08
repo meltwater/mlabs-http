@@ -19,7 +19,7 @@ import { createClient } from '@meltwater/mlabs-http'
 
 Create an [HttpClient] with an API compatible with [Got].
 
-- A new got instance will be created for the HttpClient.
+- A new Got instance will be created for the HttpClient.
 - If `origin` is set, then `baseUrl` will be set to `origin + path`.
 - If `baseUrl` is set, then `origin` and `path` are ignored.
 - Use the `extend` option to pass default options to Got
@@ -42,7 +42,7 @@ Create an [HttpClient] with an API compatible with [Got].
       Default: none.
     - `json` (*boolean*): The [Got `json`] option.
       Default: true.
-    - `extend` (*object*): Passed to [`got.extend`] when creating the got instance.
+    - `extend` (*object*): Passed to [`got.extend`] when creating the Got instance.
 
 #### Returns
 
@@ -98,6 +98,21 @@ const http = createHttpClient({
 const body = await http.get('/get')
 ```
 
+##### Control logging
+
+```
+import createHttpClient from '@meltwater/mlabs-http'
+
+const http = createHttpClient({
+  origin: 'https://httpbin.org',
+  getLogProps: ({body}) => ({myIp: body.origin})
+})
+
+const body = await http.get('/get', {
+  meta: {user: {name: 'foo'}},
+  logProps: {userId: 123}
+```
+
 ## HttpClient
 
 Wraps all [Got] methods (except `stream`) with an identical API:
@@ -132,16 +147,27 @@ Wraps all [Got] methods (except `stream`) with an identical API:
     - `resolveWithFullResponse` (*boolean*): If true, return the full response from [Got],
       otherwise only return the response body.
       Default: false.
+    - `responseLogLevel` (*string*): Log level to log successful responses.
+      If this level is active, then successful responses
+      will be logged according to `willLogResponse`.
+      Default: debug.
     - `willLogOptions` (*boolean*): If true, log all options under `meta`.
       Default: true.
     - `willLogResponse` (*boolean*): If true, log full response on success,
       otherwise only log a message.
       Only relevant if `responseLogLevel` is an active level.
       Default: false.
-    - `responseLogLevel` (*string*): Log level to log successful responses.
-      If this level is active, then successful responses
-      will be logged according to `willLogResponse`.
-      Default: debug.
+    - `getLogProps` (*function*):
+      Receives the full response from Got and returns an object
+      whose properties will be logged at the top level.
+      Only relevant if `responseLogLevel` is an active level.
+      Default: no additional props are logged.
+    - `getLogData` (*function*):
+      Receives the full response from Got and returns an object
+      whose properties will be logged under `data`.
+      Only relevant if `responseLogLevel` is an active level
+      and `willLogResponse` is set.
+      Default: logs a relevant subset of the full Got response.
     - `log` (*object*): A [Logger].
       Default: a new logger.
 
