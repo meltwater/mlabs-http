@@ -114,7 +114,7 @@ const body = await http.get('/get', {
   logProps: {userId: 123}
 })
 
-// all logs have {userId, meta: {user: {name: 'foo'}}}
+// all logs have {userId: 123, meta: {user: {name: 'foo'}}}
 // success log also has {myIp: '127.0.0.1'}
 ```
 
@@ -135,6 +135,8 @@ Wraps all [Got] methods (except `stream`) with an identical API:
     - `responseLogLevel`
     - `willLogOptions`
     - `willLogResponse`
+    - `getLogProps`
+    - `getLogData`
 
 ### Constructor
 
