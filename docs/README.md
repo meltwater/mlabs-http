@@ -106,7 +106,7 @@ import createHttpClient from '@meltwater/mlabs-http'
 const http = createHttpClient({
   origin: 'https://httpbin.org',
   responseLogLevel: 'info',
-  getLogProps: ({body}) => ({myIp: body.origin})
+  getLogResponseProps: ({body}) => ({myIp: body.origin})
 })
 
 const body = await http.get('/get', {
@@ -135,8 +135,8 @@ Wraps all [Got] methods (except `stream`) with an identical API:
     - `responseLogLevel`
     - `willLogOptions`
     - `willLogResponseData`
-    - `getLogProps`
-    - `getLogData`
+    - `getLogResponseProps`
+    - `getLogResponseData`
 
 ### Constructor
 
@@ -164,12 +164,12 @@ Wraps all [Got] methods (except `stream`) with an identical API:
       otherwise only log a message.
       Only relevant if `responseLogLevel` is an active level.
       Default: false.
-    - `getLogProps` (*function*):
+    - `getLogResponseProps` (*function*):
       Receives the full response from Got and returns an object
       whose properties will be logged at the top level.
       Only relevant if `responseLogLevel` is an active level.
       Default: no additional props are logged.
-    - `getLogData` (*function*):
+    - `getLogResponseData` (*function*):
       Receives the full response from Got and returns an object
       whose properties will be logged under `data`.
       Only relevant if `responseLogLevel` is an active level
