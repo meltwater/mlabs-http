@@ -52,7 +52,7 @@ Create an [HttpClient] with an API compatible with [Got].
 
 ##### JSON requests
 
-```
+```js
 import createHttpClient from '@meltwater/mlabs-http'
 
 const http = createHttpClient({origin: 'https://httpbin.org'})
@@ -63,7 +63,7 @@ await http.post('/post', {body: {foo: 'bar'}})
 
 ##### Full response
 
-```
+```js
 import createHttpClient from '@meltwater/mlabs-http'
 
 const http = createHttpClient({
@@ -87,7 +87,7 @@ const { body, statusCode } = await http.get('/get', {
 
 ##### With custom Got options
 
-```
+```js
 import createHttpClient from '@meltwater/mlabs-http'
 
 const http = createHttpClient({
@@ -100,7 +100,7 @@ const body = await http.get('/get')
 
 ##### Control logging
 
-```
+```js
 import createHttpClient from '@meltwater/mlabs-http'
 
 const http = createHttpClient({
