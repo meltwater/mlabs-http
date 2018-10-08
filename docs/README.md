@@ -100,13 +100,15 @@ const body = await http.get('/get')
 
 ## HttpClient
 
-- Wraps all [Got] methods (except `stream`) with an identical API:
-  `get`, `post`, `put`, `patch`, `head`, and `delete`.
+Wraps all [Got] methods (except `stream`) with an identical API:
+`get`, `post`, `put`, `patch`, `head`, and `delete`.
+
 - Methods return a Promise with the response body
   and not the whole Got response object
   (this is different then the default Got behavior).
   Use `resolveWithFullResponse` to get the full response.
 - All methods have a `meta` option to log additional properties to the `meta` key.
+- All methods have a `logProps` option to log additional properties at the top-level.
 - All methods have these additional options, which may be set per-request
   to override the default from the constructor (see below):
     - `resolveWithFullResponse`
