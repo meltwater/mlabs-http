@@ -4,8 +4,10 @@ import createExamples from '@meltwater/examplr'
 
 import get from './get'
 import post from './post'
+import metrics from './metrics'
 
 export const examples = {
+  metrics,
   get,
   post
 }
