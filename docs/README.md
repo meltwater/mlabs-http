@@ -134,7 +134,7 @@ Wraps all [Got] methods (except `stream`) with an identical API:
     - `resolveWithFullResponse`
     - `responseLogLevel`
     - `willLogOptions`
-    - `willLogResponse`
+    - `willLogResponseData`
     - `getLogProps`
     - `getLogData`
 
@@ -156,11 +156,11 @@ Wraps all [Got] methods (except `stream`) with an identical API:
       Default: false.
     - `responseLogLevel` (*string*): Log level to log successful responses.
       If this level is active, then successful responses
-      will be logged according to `willLogResponse`.
+      will be logged according to `willLogResponseData`.
       Default: debug.
     - `willLogOptions` (*boolean*): If true, log all options under `meta`.
       Default: true.
-    - `willLogResponse` (*boolean*): If true, log full response on success,
+    - `willLogResponseData` (*boolean*): If true, log full response on success,
       otherwise only log a message.
       Only relevant if `responseLogLevel` is an active level.
       Default: false.
@@ -173,7 +173,7 @@ Wraps all [Got] methods (except `stream`) with an identical API:
       Receives the full response from Got and returns an object
       whose properties will be logged under `data`.
       Only relevant if `responseLogLevel` is an active level
-      and `willLogResponse` is set.
+      and `willLogResponseData` is set.
       Default: logs a relevant subset of the full Got response.
     - `log` (*object*): A [Logger].
       Default: a new logger.
