@@ -129,8 +129,8 @@ Wraps all [Got] methods (except `stream`) with an identical API:
   Use `resolveWithFullResponse` to get the full response.
 - All methods have a `meta` option to log additional properties to the `meta` key.
 - All methods have a `logProps` option to log additional properties at the top-level.
-- All methods have a `resource` option to group dynamic requests,
-  e.g., if `url=/api/users/123` then set `resource=/api/users`.
+- All methods have a `resourceName` option to group dynamic requests,
+  e.g., if `url=/api/users/123` then set `resourceName=/api/users`.
 - All methods have these additional options, which may be set per-request
   to override the default from the constructor (see below):
     - `resolveWithFullResponse`
