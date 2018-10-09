@@ -7,10 +7,11 @@ export default ({ log, baseUrl }) => async (url = '/get') => {
   registerMetrics({ register })
 
   const client = createClient({ baseUrl, metrics: register, log })
+  const resource = '/get'
   await Promise.all([
-    client.get(url),
-    client.get(url),
-    client.get(url)
+    client.get(url, { resource }),
+    client.get(url, { resource }),
+    client.get(url, { resource })
   ])
 
   return register.metrics()
