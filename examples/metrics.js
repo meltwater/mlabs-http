@@ -4,7 +4,14 @@ import { createClient, registerMetrics } from '../lib'
 
 export default ({ log, baseUrl }) => async (url = '/get') => {
   const register = new Registry()
-  registerMetrics({ register })
+  registerMetrics({
+    register,
+    options: {
+      'request_duration_milliseconds': {
+        buckets: [0, 200, 300, 800]
+      }
+    }
+  })
 
   const client = createClient({ baseUrl, metrics: register, log })
 
