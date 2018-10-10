@@ -55,5 +55,10 @@ test('get', async t => {
   } catch (err) {}
   http.get(`/good/${id}`, { resourceName: '/good' }).catch(() => {})
   const metrics = t.context.register.metrics()
-  t.snapshot(metrics)
+
+  // Remove metric line that depends on millisecond timing
+  const m = metrics.split('\n')
+  const snapshot = [...m.slice(0, 31), ...m.slice(32)].join('\n')
+
+  t.snapshot(snapshot)
 })
