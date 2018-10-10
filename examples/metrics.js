@@ -27,6 +27,6 @@ export default ({ log, baseUrl }) => async (url = '/get') => {
     get()
   ])
 
-  get()
+  get().catch(() => {})
   return register.metrics()
 }
