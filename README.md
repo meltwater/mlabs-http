@@ -16,6 +16,10 @@ The client provides an identical API to Got with two exceptions:
 - Methods only return the request body
   unless `resolveWithFullResponse` is set.
 
+All requests are wrapped with proper logging and error handling.
+Logging can be customized per-client and per-request.
+Supports Prometheus metric collection for all requests.
+
 [Got]: https://github.com/sindresorhus/got
 
 ## Installation
