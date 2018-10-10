@@ -51,6 +51,25 @@ const logResponse = async () => {
 logResponse().catch(err => { console.error(err) })
 ```
 
+### With Prometheus metrics
+
+```js
+import { Registry } from 'prom-client'
+import createHttpClient, { registerMetrics } from '@meltwater/mlabs-http'
+
+const register = new Registry()
+
+registerMetrics({ register })
+
+const logMetrics = async () => {
+  const http = createHttpClient({register, origin: 'https://httpbin.org'})
+  await http.get('/get')
+  console.log(register.metrics())
+}
+
+logMetrics().catch(err => { console.error(err) })
+```
+
 ## Development Quickstart
 
 ```
