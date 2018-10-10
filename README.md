@@ -20,7 +20,11 @@ All requests are wrapped with proper logging and error handling.
 Logging can be customized per-client and per-request.
 Supports Prometheus metric collection for all requests.
 
+For a GraphQL client with a corresponding feature set,
+see [@meltwater/mlabs-graphql].
+
 [Got]: https://github.com/sindresorhus/got
+[@meltwater/mlabs-graphql]: https://github.com/meltwater/mlabs-graphql
 
 ## Installation
 
