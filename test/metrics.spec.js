@@ -50,5 +50,6 @@ test('get', async t => {
     http.get(`/good/${id}`, { resourceName: '/good' })
   ])
   http.get(`/good/${id}`, { resourceName: '/good' }).catch(() => {})
-  t.snapshot(t.context.register.metrics())
+  const metrics = t.context.register.metrics()
+  t.snapshot(metrics)
 })

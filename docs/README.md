@@ -3,6 +3,7 @@
 ## Top-Level Exports
 
 - [`createClient(options)`](#createclientoptions)
+- [`registerMetrics (options)`](#registermetricsoptions)
 - [`HttpClient(options)`](#httpclientoptions)
 
 ### Importing
@@ -13,6 +14,10 @@ You can import any of them like this:
 ```js
 import { createClient } from '@meltwater/mlabs-http'
 ```
+
+### Constants
+
+- `metricNames`: Un-prefixed metric names.
 
 ---
 ### `createClient(options)`
@@ -118,6 +123,52 @@ const body = await http.get('/get', {
 // success log also has {myIp: '127.0.0.1'}
 ```
 
+---
+### `registerMetrics(options)`
+
+Collect metrics with [Prometheus client].
+
+Call this function once with a [Prometheus Registry] instance
+and pass the same Registry instance to each HttpClien that should
+send metrics to this Registry.
+
+The list of (un-prefixed) metric names is exported as `metricNames`.
+
+#### Arguments
+
+1. `options` (*object*):
+    - `register` (*object* **required**):
+      [Prometheus registry] to use for metrics.
+    - `prefix` (*string*): Prefix to prepend to all metric names.
+      Default: `http_client_`.
+    - `metricOptions` (*object*): Override options for each metric.
+      Default: no overrides.
+
+#### Returns
+
+(*undefined*)
+
+#### Examples
+
+```js
+const register = new Registry()
+
+registerMetrics({
+  register,
+  prefix: 'my_prefix_',
+  options: {
+    'request_duration_milliseconds': {
+      buckets: [0, 200, 300, 800]
+    }
+  }
+})
+
+const client = createClient({ metrics: register })
+await client.get('/get')
+
+register.metrics()
+```
+
 ## HttpClient
 
 Wraps all [Got] methods (except `stream`) with an identical API:
@@ -146,6 +197,8 @@ Wraps all [Got] methods (except `stream`) with an identical API:
 1. `options` (*object*):
     - `got` (*object* **required**):
       The [Got] instance to use for requests.
+    - `metrics` (*object*): [Prometheus Registry] to collect metrics.
+      Default: `null` (metrics disabled).
     - `name` (*string*): The client name (for logging).
       Default: http.
     - `reqId` (*string*): A request id to bind to the instance.
@@ -190,3 +243,5 @@ Wraps all [Got] methods (except `stream`) with an identical API:
 [`got.extend`]: https://github.com/sindresorhus/got#gotextendoptions
 [URL origin]: https://nodejs.org/api/url.html#url_url_strings_and_url_objects
 [Logger]: https://github.com/meltwater/mlabs-logger
+[Prometheus Registry]: https://github.com/siimon/prom-client#multiple-registries
+[Prometheus client]: https://github.com/siimon/prom-client
