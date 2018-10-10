@@ -129,7 +129,7 @@ const body = await http.get('/get', {
 Collect metrics with [Prometheus client].
 
 Call this function once with a [Prometheus Registry] instance
-and pass the same Registry instance to each HttpClien that should
+and pass the same Registry instance to each HttpClient that should
 send metrics to this Registry.
 
 The list of (un-prefixed) metric names is exported as `metricNames`.
@@ -163,8 +163,8 @@ registerMetrics({
   }
 })
 
-const client = createClient({ metrics: register })
-await client.get('/get')
+const http = createClient({ metrics: register })
+await http.get('/get')
 
 register.metrics()
 ```
