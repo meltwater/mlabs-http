@@ -26,6 +26,7 @@ test.beforeEach(t => {
   const api = 'https://example.com'
 
   const client = (t, options = {}) => createClient({
+    extend: { retry: { retries: 0 } },
     baseUrl: api,
     resolveWithFullResponse: true,
     metrics: register,
@@ -49,6 +50,9 @@ test('get', async t => {
     http.get(`/good/${id}`, { resourceName: '/good' }),
     http.get(`/good/${id}`, { resourceName: '/good' })
   ])
+  try {
+    await http.get(`/bad/${id}`, { resourceName: '/bad' })
+  } catch (err) {}
   http.get(`/good/${id}`, { resourceName: '/good' }).catch(() => {})
   const metrics = t.context.register.metrics()
   t.snapshot(metrics)
