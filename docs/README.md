@@ -133,15 +133,16 @@ const body = await http.get('/get', {
 
 Register an [HttpClient] and its dependencies in the Awilix container.
 
-The container must provide the dependencies `log` and `reqId`.
+The container must provide the dependencies `registry`, `log` and `reqId`.
 The `reqId` will be sent in the `x-request-id` header.
+The `registry` is passed as `metrics` to the HttpClient.
 
 For example, registering a client named `http`
 will register the following dependencies:
 
 - `httpClient`: The [HttpClient] (scoped).
 
-Any of these dependencies may be overridden manually be registering
+Any of these dependencies may be overridden manually by registering
 a compatible dependency under the corresponding name.
 
 #### Arguments
