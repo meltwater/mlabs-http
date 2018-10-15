@@ -3,7 +3,7 @@
 ## Top-Level Exports
 
 - [`createClient(options)`](#createclientoptions)
-- [`registerMetrics (options)`](#registermetricsoptions)
+- [`registerMetrics(options)`](#registermetricsoptions)
 - [`HttpClient(options)`](#httpclientoptions)
 - [`HttpClient(options)`](#httpclientoptions)
 - [Metric handlers](#metricshandlers)
@@ -248,8 +248,8 @@ Handlers for updating metrics.
 Provided for libraries that want to register and track similar metrics.
 
 Each handlers is passed the following options in it's first argument:
-    - `prefix` (see #registermetricsoptions)
-    - `resourceName` (see #registermetricsoptions)
+    - `prefix` (see [`registerMetrics`](#registermetricsoptions))
+    - `resourceName (see [`registerMetrics`](#registermetricsoptions))
     - `method` (see)
     - `data` (on success) or `err` (on fail)
         - Must contain `statusCode` and `timings` properties.
