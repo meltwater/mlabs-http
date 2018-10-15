@@ -246,11 +246,12 @@ Wraps all [Got] methods (except `stream`) with an identical API:
 Handlers for updating metrics.
 Provided for libraries that want to register and track similar metrics.
 
-Each handlers is passed the following options in the first argument:
+Each handler is passed the following options in the first argument:
 
   - `prefix` (see [`registerMetrics`](#registermetricsoptions))
-  - `resourceName` (see [`registerMetrics`](#registermetricsoptions))
-  - `method` (see)
+  - `name` (see [`HttpClient`](#httpclient))
+  - `resourceName` (see [`HttpClient`](#httpclient))
+  - `method`
   - `data` (on success) or `err` (on fail)
       - Must contain `statusCode` and `timings` properties.
 
