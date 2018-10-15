@@ -129,6 +129,82 @@ const body = await http.get('/get', {
 ```
 
 ---
+### `registerClient(container, client)`
+
+Register an [HttpClient] and its dependencies in the Awilix container.
+
+The container must provide the dependencies `log` and `reqId`.
+The `reqId` will be sent in the `x-request-id` header.
+
+For example, registering a client named `http`
+will register the following dependencies:
+
+- `httpClient`: The [HttpClient] (scoped).
+
+Any of these dependencies may be overridden manually be registering
+a compatible dependency under the corresponding name.
+
+#### Arguments
+
+1. `container` (*object* **required**): The [Awilix] container.
+1. `client` (*object*):
+    - `name` (*string*): The (unique) client name.
+      The client will be registered as `${name}Client`.
+      Default: `http`.
+    - `origin` (*string*): Passed directly to [HttpClient].
+    - `path` (*string*): Passed directly to [HttpClient].
+    - `baseUrl` (*string*): Passed directly to [HttpClient].
+    - `token` (*string*): Passed as `bearerToken` to [HttpClient].
+    - `clientOptions` (*object*): Options passed directly to [HttpClient].
+
+#### Returns
+
+(*undefined*)
+
+#### Example
+
+```js
+registerClient(container, {
+  name: 'foo',
+  origin: 'https://example.com'
+})
+
+const client = container.resolve('fooClient')
+```
+
+---
+### `registerClients(container, clients, defaults)`
+
+Register each [HttpClient] and its dependencies in the Awilix container
+using [`registerClient`](#registerclientcontainer-client).
+
+#### Arguments
+
+1. `container` (*object* **required**): The [Awilix] container.
+2. `clients` (*object*):
+    The clients to register.
+    Each key will be used as the client `name`
+    and the value will be passed as the second argument to
+    [`registerClient`](#registerclientcontainer-client).
+3. `defaults` (*object*):
+   Options to apply to each client by default.
+
+#### Returns
+
+(*undefined*)
+
+#### Example
+
+```js
+registerClients(container, {
+  foo: {origin: 'https://example.com'},
+  {token: 'auth-token'}
+})
+
+const client = container.resolve('fooClient')
+```
+
+---
 ### `registerMetrics(options)`
 
 Collect metrics with [Prometheus client].
