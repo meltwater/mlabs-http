@@ -4,9 +4,8 @@
 
 - [`createClient(options)`](#createclientoptions)
 - [`registerMetrics(options)`](#registermetricsoptions)
-- [`HttpClient(options)`](#httpclientoptions)
-- [`HttpClient(options)`](#httpclientoptions)
-- [Metric handlers](#metricshandlers)
+- [`HttpClient(options)`](#httpclient)
+- [Metric handlers](#metrichandlers)
     - `metricsHandleStart`
     - `metricsHandleDone`
     - `metricsHandleFail`
@@ -249,11 +248,11 @@ Provided for libraries that want to register and track similar metrics.
 
 Each handlers is passed the following options in it's first argument:
 
-    - `prefix` (see [`registerMetrics`](#registermetricsoptions))
-    - `resourceName` (see [`registerMetrics`](#registermetricsoptions))
-    - `method` (see)
-    - `data` (on success) or `err` (on fail)
-        - Must contain `statusCode` and `timings` properties.
+  - `prefix` (see [`registerMetrics`](#registermetricsoptions))
+  - `resourceName` (see [`registerMetrics`](#registermetricsoptions))
+  - `method` (see)
+  - `data` (on success) or `err` (on fail)
+      - Must contain `statusCode` and `timings` properties.
 
 ### Handlers
 
