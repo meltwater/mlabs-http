@@ -6,7 +6,7 @@
 - [`registerMetrics (options)`](#registermetricsoptions)
 - [`HttpClient(options)`](#httpclientoptions)
 - [`HttpClient(options)`](#httpclientoptions)
-- [Metric handlers][#metricshandlers]
+- [Metric handlers](#metricshandlers)
     - `metricsHandleStart`
     - `metricsHandleDone`
     - `metricsHandleFail`
@@ -247,12 +247,12 @@ Wraps all [Got] methods (except `stream`) with an identical API:
 Handlers for updating metrics.
 Provided for libraries that want to register and track similar metrics.
 
-Each handlers is passed the following options as it's first argument:
-  - `prefix` (see #registermetricsoptions)
-  - `resourceName` (see #registermetricsoptions)
-  - `method` (see)
-  - `data` (on success) or `err` (on fail)
-      - Must contain `statusCode` and `timings` properties.
+Each handlers is passed the following options in it's first argument:
+    - `prefix` (see #registermetricsoptions)
+    - `resourceName` (see #registermetricsoptions)
+    - `method` (see)
+    - `data` (on success) or `err` (on fail)
+        - Must contain `statusCode` and `timings` properties.
 
 ### Handlers
 
