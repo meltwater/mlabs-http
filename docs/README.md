@@ -5,6 +5,12 @@
 - [`createClient(options)`](#createclientoptions)
 - [`registerMetrics (options)`](#registermetricsoptions)
 - [`HttpClient(options)`](#httpclientoptions)
+- [`HttpClient(options)`](#httpclientoptions)
+- [Metric handlers][#metricshandlers]
+    - `metricsHandleStart`
+    - `metricsHandleDone`
+    - `metricsHandleFail`
+    - `metricsHandleSuccess`
 
 ### Importing
 
@@ -235,6 +241,25 @@ Wraps all [Got] methods (except `stream`) with an identical API:
       Default: logs a relevant subset of the full Got response.
     - `log` (*object*): A [Logger].
       Default: a new logger.
+
+## Metric Handlers
+
+Handlers for updating metrics.
+Provided for libraries that want to register and track similar metrics.
+
+Each handlers is passed the following options as it's first argument:
+  - `prefix` (see #registermetricsoptions)
+  - `resourceName` (see #registermetricsoptions)
+  - `method` (see)
+  - `data` (on success) or `err` (on fail)
+      - Must contain `statusCode` and `timings` properties.
+
+### Handlers
+
+- `metricsHandleStart`: Call immediately before request is started.
+- `metricsHandleDone`: Call when request completes or errors.
+- `metricsHandleFail`: Call when request fails; passed `err` property.
+- `metricsHandleSuccess`: Call when request succeeds; passed `data` property.
 
 [HttpClient]: #httpclient
 [Got]: https://github.com/sindresorhus/got
