@@ -249,7 +249,7 @@ Provided for libraries that want to register and track similar metrics.
 
 Each handlers is passed the following options in it's first argument:
     - `prefix` (see [`registerMetrics`](#registermetricsoptions))
-    - `resourceName (see [`registerMetrics`](#registermetricsoptions))
+    - `resourceName` (see [`registerMetrics`](#registermetricsoptions))
     - `method` (see)
     - `data` (on success) or `err` (on fail)
         - Must contain `statusCode` and `timings` properties.
