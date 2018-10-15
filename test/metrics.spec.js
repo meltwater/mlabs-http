@@ -6,7 +6,7 @@ import createLogger from '@meltwater/mlabs-logger'
 
 import {
   createClient,
-  registerMetrics
+  collectMetrics
 } from '../lib'
 
 test.beforeEach(t => {
@@ -14,7 +14,7 @@ test.beforeEach(t => {
 
   const register = new Registry()
 
-  registerMetrics({
+  collectMetrics({
     register,
     options: {
       'request_duration_milliseconds': {

@@ -3,7 +3,7 @@
 ## Top-Level Exports
 
 - [`createClient(options)`](#createclientoptions)
-- [`registerMetrics(options)`](#registermetricsoptions)
+- [`collectMetrics(options)`](#collectmetricsoptions)
 - [`HttpClient(options)`](#httpclient)
 - [Metric handlers](#metrichandlers)
     - `metricsHandleStart`
@@ -205,7 +205,7 @@ const client = container.resolve('fooClient')
 ```
 
 ---
-### `registerMetrics(options)`
+### `collectMetrics(options)`
 
 Collect metrics with [Prometheus client].
 
@@ -234,7 +234,7 @@ The list of (un-prefixed) metric names is exported as `metricNames`.
 ```js
 const register = new Registry()
 
-registerMetrics({
+collectMetrics({
   register,
   prefix: 'my_prefix_',
   options: {
@@ -324,7 +324,7 @@ Provided for libraries that want to register and track similar metrics.
 
 Each handler is passed the following options in the first argument:
 
-  - `prefix` (see [`registerMetrics`](#registermetricsoptions))
+  - `prefix` (see [`collectMetrics`](#collectmetricsoptions))
   - `name` (see [`HttpClient`](#httpclient))
   - `resourceName` (see [`HttpClient`](#httpclient))
   - `method`

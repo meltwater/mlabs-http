@@ -1,10 +1,10 @@
 import { Registry } from 'prom-client'
 
-import { createClient, registerMetrics } from '../lib'
+import { createClient, collectMetrics } from '../lib'
 
 export default ({ log, baseUrl }) => async (url = '/get') => {
   const register = new Registry()
-  registerMetrics({
+  collectMetrics({
     register,
     options: {
       'request_duration_milliseconds': {

@@ -63,11 +63,11 @@ logResponse().catch(err => { console.error(err) })
 
 ```js
 import { Registry } from 'prom-client'
-import createHttpClient, { registerMetrics } from '@meltwater/mlabs-http'
+import createHttpClient, { collectMetrics } from '@meltwater/mlabs-http'
 
 const register = new Registry()
 
-registerMetrics({ register })
+collectMetrics({ register })
 
 const logMetrics = async () => {
   const http = createHttpClient({register, origin: 'https://httpbin.org'})
