@@ -9,12 +9,15 @@ import {
   collectMetrics
 } from '../lib'
 
+const metricsPrefix = 'test_'
+
 test.beforeEach(t => {
   nock.disableNetConnect()
 
   const register = new Registry()
 
   collectMetrics({
+    prefix: metricsPrefix,
     register,
     options: {
       'request_duration_milliseconds': {
@@ -30,6 +33,7 @@ test.beforeEach(t => {
     baseUrl: api,
     resolveWithFullResponse: true,
     metrics: register,
+    metricsPrefix,
     log: createLogger({ t }),
     ...options
   })
