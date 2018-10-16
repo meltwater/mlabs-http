@@ -6,7 +6,7 @@ export default ({ log, baseUrl }) => async (url = '/get') => {
   const register = new Registry()
   collectMetrics({
     register,
-    options: {
+    metricOptions: {
       'request_duration_milliseconds': {
         buckets: [0, 200, 300, 800]
       }

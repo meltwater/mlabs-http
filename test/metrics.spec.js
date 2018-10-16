@@ -19,7 +19,7 @@ test.beforeEach(t => {
   collectMetrics({
     prefix: metricsPrefix,
     register,
-    options: {
+    metricOptions: {
       'request_duration_milliseconds': {
         buckets: [0, 10000]
       }
@@ -60,9 +60,12 @@ test('get', async t => {
   http.get(`/good/${id}`, { resourceName: '/good' }).catch(() => {})
   const metrics = t.context.register.metrics()
 
-  // Remove metric line that depends on millisecond timing
+  // Remove metric lines that depends on millisecond timing
   const m = metrics.split('\n')
-  const snapshot = [...m.slice(0, 31), ...m.slice(32)].join('\n')
+  const snapshot = [
+    ...m.slice(0, 23),
+    ...m.slice(24)
+  ].join('\n')
 
   t.snapshot(snapshot)
 })
