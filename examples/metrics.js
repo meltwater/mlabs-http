@@ -13,7 +13,7 @@ export default ({ log, baseUrl }) => async (url = '/get') => {
     }
   })
 
-  const client = createClient({ baseUrl, metrics: register, log })
+  const client = createClient({ baseUrl, metricRegistry: register, log })
 
   const get = async (url = '/get') => {
     try {

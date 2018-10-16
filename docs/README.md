@@ -135,7 +135,7 @@ Register an [HttpClient] and its dependencies in the Awilix container.
 
 The container must provide the dependencies `registry`, `log` and `reqId`.
 The `reqId` will be sent in the `x-request-id` header.
-The `registry` is passed as `metrics` to the HttpClient.
+The `registry` is passed as `metricRegistry` to the HttpClient.
 
 For example, registering a client named `http`
 will register the following dependencies:
@@ -245,7 +245,7 @@ collectMetrics({
   }
 })
 
-const http = createClient({ metrics: register })
+const http = createClient({ metricRegistry: register })
 await http.get('/get')
 
 register.metrics()
@@ -279,8 +279,10 @@ Wraps all [Got] methods (except `stream`) with an identical API:
 1. `options` (*object*):
     - `got` (*object* **required**):
       The [Got] instance to use for requests.
-    - `metrics` (*object*): [Prometheus Registry] to collect metrics.
+    - `metricRegistry` (*object*): [Prometheus Registry] to collect metrics.
       Default: `null` (metrics disabled).
+    - `metricPrefix` (*object*): Prefix prepend to all metric names.
+      Default: See [`collectMetrics`](#collectmetricsoptions).
     - `name` (*string*): The client name (for logging).
       Default: http.
     - `reqId` (*string*): A request id to bind to the instance.

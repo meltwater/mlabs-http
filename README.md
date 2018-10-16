@@ -70,7 +70,7 @@ const register = new Registry()
 collectMetrics({ register })
 
 const logMetrics = async () => {
-  const http = createHttpClient({register, origin: 'https://httpbin.org'})
+  const http = createHttpClient({metricRegistry: register, origin: 'https://httpbin.org'})
   await http.get('/get')
   console.log(register.metrics())
 }

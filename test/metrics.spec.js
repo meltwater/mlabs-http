@@ -32,7 +32,7 @@ test.beforeEach(t => {
     extend: { retry: { retries: 0 } },
     baseUrl: api,
     resolveWithFullResponse: true,
-    metrics: register,
+    metricRegistry: register,
     metricPrefix,
     log: createLogger({ t }),
     ...options
