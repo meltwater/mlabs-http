@@ -256,6 +256,10 @@ register.metrics()
 Wraps all [Got] methods (except `stream`) with an identical API:
 `get`, `post`, `put`, `patch`, `head`, and `delete`.
 
+Provides an additional method `health` which takes no arguments
+and resolves `true` or rejects.
+Configure with the `healthPath` and `getHealth` options.
+
 - Methods return a Promise with the response body
   and not the whole Got response object
   (this is different then the default Got behavior).
@@ -279,12 +283,17 @@ Wraps all [Got] methods (except `stream`) with an identical API:
 1. `options` (*object*):
     - `got` (*object* **required**):
       The [Got] instance to use for requests.
+    - `name` (*string*): The client name (for logging).
+      Default: http.
     - `metricRegistry` (*object*): [Prometheus Registry] to collect metrics.
       Default: `null` (metrics disabled).
     - `metricPrefix` (*object*): Prefix prepend to all metric names.
       Default: See [`collectMetrics`](#collectmetricsoptions).
-    - `name` (*string*): The client name (for logging).
-      Default: http.
+    - `healthPath` (*string*): Path to use for the health check.
+      Default: `/`.
+    - `getHealth`: Function called for the `health` method.
+      Receives the client instance and the `healthPath` as arguments.
+      Default: a GET request to `healthPath`.
     - `reqId` (*string*): A request id to bind to the instance.
       Default: one will be generated.
     - `reqIdHeader` (*string*): Name of the header to use for the request id.
