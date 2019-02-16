@@ -52,6 +52,8 @@ Create an [HttpClient] with an API compatible with [Got].
       Default: none.
     - `json` (*boolean*): The [Got `json`] option.
       Default: true.
+    - `cache` (*boolean*): The [Got `cache`] option.
+      Default: none.
     - `extend` (*object*): Passed to [`got.extend`] when creating the Got instance.
 
 #### Returns
@@ -140,6 +142,7 @@ The `registry` is passed as `metricRegistry` to the HttpClient.
 For example, registering a client named `http`
 will register the following dependencies:
 
+- `httpCache`: A [quick-lru] cache.
 - `httpClient`: The [HttpClient] (scoped).
 
 Any of these dependencies may be overridden manually by registering
@@ -156,6 +159,7 @@ a compatible dependency under the corresponding name.
     - `path` (*string*): Passed directly to [HttpClient].
     - `baseUrl` (*string*): Passed directly to [HttpClient].
     - `token` (*string*): Passed as `bearerToken` to [HttpClient].
+    - `cacheOptions` (*object*): Options passed directly to [quick-lru].
     - `clientOptions` (*object*): Options passed directly to [HttpClient].
 
 #### Returns
@@ -353,9 +357,11 @@ Each handler is passed the following options in the first argument:
 [HttpClient]: #httpclient
 [Got]: https://github.com/sindresorhus/got
 [Got `json`]: https://github.com/sindresorhus/got#json
+[Got `cache`]: https://github.com/sindresorhus/got#cache
 [Got `baseUrl`]: https://github.com/sindresorhus/got#baseurl
 [`got.extend`]: https://github.com/sindresorhus/got#gotextendoptions
 [URL origin]: https://nodejs.org/api/url.html#url_url_strings_and_url_objects
 [Logger]: https://github.com/meltwater/mlabs-logger
 [Prometheus Registry]: https://github.com/siimon/prom-client#multiple-registries
 [Prometheus client]: https://github.com/siimon/prom-client
+[quick-lru]: https://github.com/sindresorhus/quick-lru
