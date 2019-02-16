@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ### Added
 
 - Register and use quick-lru cache with `registerClient`.
+- Log `fromCache` at top level.
 
 ## [1.1.1] / 2018-12-17
 
