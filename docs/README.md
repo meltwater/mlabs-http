@@ -346,6 +346,7 @@ Each handler is passed the following options in the first argument:
   - `method`
   - `data` (on success) or `err` (on fail)
       - Must contain `statusCode` and `timings` properties.
+      - May contain `fromCache` property.
 
 ### Handlers
 

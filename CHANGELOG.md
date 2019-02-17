@@ -11,6 +11,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 - Register and use quick-lru cache with `registerClient`.
 - Log `fromCache` at top level.
+- New metrics:
+  - `http_client_requests_completed_cached_total`
+  - `http_client_requests_failed_cached_total`
 
 ### Fixed
 
