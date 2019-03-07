@@ -18,7 +18,9 @@ export default ({ log, baseUrl }) => async (url = '/get') => {
   const get = async (url = '/get') => {
     try {
       return await client.get(url, { resourceName: url })
-    } catch (err) {}
+    } catch (err) {
+      log.error({ err }, 'Get: Fail')
+    }
   }
 
   await Promise.all([

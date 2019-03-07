@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 - Option `healthBaseUrl` to override health check `baseUrl`.
 
+### Fixed
+
+- Throw informative error if metrics are not registered.
+
 ## [1.2.0] / 2019-02-16
 
 ### Added
