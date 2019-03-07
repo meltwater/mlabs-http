@@ -262,7 +262,7 @@ Wraps all [Got] methods (except `stream`) with an identical API:
 
 Provides an additional method `health` which takes no arguments
 and resolves `true` or rejects.
-Configure with the `healthPath` and `getHealth` options.
+Configure with the `healthPath`, `healthBaseUrl` and `getHealth` options.
 
 - Methods return a Promise with the response body
   and not the whole Got response object
@@ -295,6 +295,8 @@ Configure with the `healthPath` and `getHealth` options.
       Default: See [`collectMetrics`](#collectmetricsoptions).
     - `healthPath` (*string*): Path to use for the health check.
       Default: `/`.
+    - `healthBaseUrl` (*string*): Use a different `baseUrl` for the health check.
+      Default: use the same `baseUrl` as the client.
     - `getHealth`: Function called for the `health` method.
       Receives the client instance and the `healthPath` as arguments.
       Default: a GET request to `healthPath`.
