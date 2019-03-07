@@ -4,6 +4,8 @@
 
 - [`createClient(options)`](#createclientoptions)
 - [`collectMetrics(options)`](#collectmetricsoptions)
+- [`registerClient(container, client)`](#registerclientontainer-client)
+- [`registerClients(container, clients, defaults)`](#registerclientscontainer-clients-defaults)
 - [`HttpClient(options)`](#httpclient)
 - [Metric handlers](#metrichandlers)
     - `metricsHandleStart`
