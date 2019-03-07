@@ -14,6 +14,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ### Added
 
 - Option `healthBaseUrl` to override health check `baseUrl`.
+- Register Got hooks via `createHooks` option.
+- Allow passing `hooks` to `createClient` to be added to default got options.
 
 ### Fixed
 

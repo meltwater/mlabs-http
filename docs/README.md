@@ -54,6 +54,8 @@ Create an [HttpClient] with an API compatible with [Got].
       Default: true.
     - `cache` (*boolean*): The [Got `cache`] option.
       Default: none.
+    - `hooks` (*boolean*): The [Got `hooks`] option.
+      Default: none.
     - `extend` (*object*): Passed to [`got.extend`] when creating the Got instance.
 
 #### Returns
@@ -143,6 +145,7 @@ For example, registering a client named `http`
 will register the following dependencies:
 
 - `httpCache`: A [quick-lru] cache.
+- `httpHooks`: No default hooks.
 - `httpClient`: The [HttpClient] (scoped).
 
 Any of these dependencies may be overridden manually by registering
@@ -159,6 +162,7 @@ a compatible dependency under the corresponding name.
     - `path` (*string*): Passed directly to [HttpClient].
     - `baseUrl` (*string*): Passed directly to [HttpClient].
     - `token` (*string*): Passed as `bearerToken` to [HttpClient].
+    - `createHooks` (*function*): Function that returns hooks (registered as dependency).
     - `cacheOptions` (*object*): Options passed directly to [quick-lru].
     - `clientOptions` (*object*): Options passed directly to [HttpClient].
 
@@ -361,6 +365,7 @@ Each handler is passed the following options in the first argument:
 [Got]: https://github.com/sindresorhus/got
 [Got `json`]: https://github.com/sindresorhus/got#json
 [Got `cache`]: https://github.com/sindresorhus/got#cache
+[Got `hooks`]: https://github.com/sindresorhus/got#hooks
 [Got `baseUrl`]: https://github.com/sindresorhus/got#baseurl
 [`got.extend`]: https://github.com/sindresorhus/got#gotextendoptions
 [URL origin]: https://nodejs.org/api/url.html#url_url_strings_and_url_objects
