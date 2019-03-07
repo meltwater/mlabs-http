@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+
+- Update to Got v9.6.0.
+
 ### Added
 
 - Option `healthBaseUrl` to override health check `baseUrl`.
