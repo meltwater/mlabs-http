@@ -1,4 +1,4 @@
-# mLabs HTTP client
+# HTTP client
 
 [![npm](https://img.shields.io/npm/v/@meltwater/mlabs-http.svg)](https://www.npmjs.com/package/@meltwater/mlabs-http)
 [![github](https://img.shields.io/badge/github-repo-blue.svg)](https://github.com/meltwater/mlabs-http)
