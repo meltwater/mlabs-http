@@ -1,14 +1,16 @@
 # mLabs HTTP client
 
-[![npm](https://img.shields.io/badge/npm-%40meltwater%2Fmlabs--http-blue.svg)](https://www.npmjs.com/package/@meltwater/mlabs-http)
+[![npm](https://img.shields.io/npm/v/@meltwater/mlabs-http.svg)](https://www.npmjs.com/package/@meltwater/mlabs-http)
 [![github](https://img.shields.io/badge/github-repo-blue.svg)](https://github.com/meltwater/mlabs-http)
 [![docs](https://img.shields.io/badge/docs-master-green.svg)](https://github.com/meltwater/mlabs-http/tree/master/docs)
-[![Codecov](https://img.shields.io/codecov/c/token/4maaJL4ImT/github/meltwater/mlabs-http.svg)](https://codecov.io/gh/meltwater/mlabs-http)
-[![CircleCI](https://circleci.com/gh/meltwater/mlabs-http.svg?style=shield&circle-token=d31aaaca4d6c806382c26ef4fa09bc29cb561e2e)](https://circleci.com/gh/meltwater/mlabs-http)
-
-## Description
+[![Codecov](https://img.shields.io/codecov/c/github/meltwater/mlabs-http.svg)](https://codecov.io/gh/meltwater/mlabs-http)
+[![CircleCI](https://img.shields.io/circleci/project/github/meltwater/mlabs-http.svg)](https://circleci.com/gh/meltwater/mlabs-http)
 
 HTTP client wrapper around [Got].
+
+[Got]: https://github.com/sindresorhus/got
+
+## Description
 
 The client provides an identical API to Got with two exceptions:
 
@@ -23,7 +25,6 @@ Supports Prometheus metric collection for all requests.
 For a GraphQL client with a corresponding feature set,
 see [@meltwater/mlabs-graphql].
 
-[Got]: https://github.com/sindresorhus/got
 [@meltwater/mlabs-graphql]: https://github.com/meltwater/mlabs-graphql
 
 ## Installation
@@ -303,7 +304,18 @@ To submit a patch:
 
 ## License
 
-This npm package is Copyright (c) 2016-2018 Meltwater Group.
+The source code for this npm package is
+licensed under the Apache License, Version 2.0 (the "License");
+you may not use this source code except in compliance with the License.
+You may obtain a copy of the License at
+
+   https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
 
 ## Warranty
 

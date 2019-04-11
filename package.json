@@ -12,7 +12,7 @@
   "homepage": "https://github.com/meltwater/mlabs-http",
   "bugs": "https://github.com/meltwater/mlabs-http/issues",
   "repository": "meltwater/mlabs-http",
-  "license": "SEE LICENSE IN LICENSE.txt",
+  "license": "Apache-2.0",
   "author": {
     "name": "Evan Sosenko",
     "email": "evan.sosenko@meltwater.com"
