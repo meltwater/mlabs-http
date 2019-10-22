@@ -20,7 +20,7 @@ test.beforeEach(t => {
     prefix: metricPrefix,
     register,
     metricOptions: {
-      'request_duration_milliseconds': {
+      request_duration_milliseconds: {
         buckets: [0, 10000]
       }
     }

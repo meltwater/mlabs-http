@@ -7,7 +7,7 @@ export default ({ log, baseUrl }) => async (url = '/get') => {
   collectMetrics({
     register,
     metricOptions: {
-      'request_duration_milliseconds': {
+      request_duration_milliseconds: {
         buckets: [0, 200, 300, 800]
       }
     }
