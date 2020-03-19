@@ -1,6 +1,6 @@
 import test from 'ava'
 import nock from 'nock'
-import uuid4 from 'uuid/v4'
+import { v4 as uuidv4 } from 'uuid'
 import { Registry } from 'prom-client'
 import createLogger from '@meltwater/mlabs-logger'
 
@@ -41,7 +41,7 @@ test.beforeEach(t => {
   t.context.api = api
   t.context.register = register
   t.context.client = client
-  t.context.id = uuid4()
+  t.context.id = uuidv4()
 })
 
 test('get', async t => {
