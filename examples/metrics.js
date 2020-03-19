@@ -23,11 +23,7 @@ export default ({ log, baseUrl }) => async (url = '/get') => {
     }
   }
 
-  await Promise.all([
-    get(),
-    get('/foo'),
-    get()
-  ])
+  await Promise.all([get(), get('/foo'), get()])
 
   get().catch(() => {})
   return register.metrics()
