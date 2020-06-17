@@ -8,7 +8,7 @@ import { createClient, collectMetrics } from '../lib'
 
 const metricPrefix = 'test_'
 
-test.beforeEach(t => {
+test.beforeEach((t) => {
   nock.disableNetConnect()
 
   const register = new Registry()
@@ -42,16 +42,11 @@ test.beforeEach(t => {
   t.context.id = uuidv4()
 })
 
-test('get', async t => {
+test('get', async (t) => {
   const { id, api, client } = t.context
   const data = { foo: 'bar' }
-  nock(api)
-    .get(`/good/${id}`)
-    .times(3)
-    .reply(200, { data })
-  nock(api)
-    .get(`/bad/${id}`)
-    .reply(500, { data })
+  nock(api).get(`/good/${id}`).times(3).reply(200, { data })
+  nock(api).get(`/bad/${id}`).reply(500, { data })
   const http = client(t)
   await Promise.all([
     http.get(`/good/${id}`, { resourceName: '/good' }),
