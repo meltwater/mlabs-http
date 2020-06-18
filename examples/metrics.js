@@ -2,7 +2,7 @@ import { Registry } from 'prom-client'
 
 import { createClient, collectMetrics } from '../lib'
 
-export default ({ log, baseUrl }) => async (url = '/get') => {
+export default ({ log, prefixUrl }) => async (url = '/get') => {
   const register = new Registry()
   collectMetrics({
     register,
@@ -13,7 +13,7 @@ export default ({ log, baseUrl }) => async (url = '/get') => {
     }
   })
 
-  const client = createClient({ baseUrl, metricRegistry: register, log })
+  const client = createClient({ prefixUrl, metricRegistry: register, log })
 
   const get = async (url = '/get') => {
     try {

@@ -32,8 +32,8 @@ import { createClient } from '@meltwater/mlabs-http'
 Create an [HttpClient] with an API compatible with [Got].
 
 - A new Got instance will be created for the HttpClient.
-- If `origin` is set, then `baseUrl` will be set to `origin + path`.
-- If `baseUrl` is set, then `origin` and `path` are ignored.
+- If `origin` is set, then `prefixUrl` will be set to `origin + path`.
+- If `prefixUrl` is set, then `origin` and `path` are ignored.
 - Use the `extend` option to pass default options to Got
   These options are merged with [`got.extend`].
 - Additional options are passed to [HttpClient].
@@ -47,7 +47,7 @@ Create an [HttpClient] with an API compatible with [Got].
     - `path` (*string*): The path to prefix all requests with.
       Only used when `origin` is set.
       Default: none.
-    - `baseUrl` (*string*): The [Got `baseUrl`].
+    - `prefixUrl` (*string*): The [Got `prefixUrl`].
       Overrides `origin` and `path`.
       Default: none.
     - `bearerToken` (*string*): Token to send in the `authorization` header.
@@ -162,7 +162,7 @@ a compatible dependency under the corresponding name.
       Default: `http`.
     - `origin` (*string*): Passed directly to [HttpClient].
     - `path` (*string*): Passed directly to [HttpClient].
-    - `baseUrl` (*string*): Passed directly to [HttpClient].
+    - `prefixUrl` (*string*): Passed directly to [HttpClient].
     - `token` (*string*): Passed as `bearerToken` to [HttpClient].
     - `createHooks` (*function*): Function that returns hooks (registered as dependency).
     - `cacheOptions` (*object*): Options passed directly to [quick-lru].
@@ -268,7 +268,7 @@ Wraps all [Got] methods (except `stream`) with an identical API:
 
 Provides an additional method `health` which takes no arguments
 and resolves `true` or rejects.
-Configure with the `healthPath`, `healthBaseUrl` and `getHealth` options.
+Configure with the `healthPath`, `healthPrefixUrl` and `getHealth` options.
 
 - Methods return a Promise with the response body
   and not the whole Got response object
@@ -301,8 +301,8 @@ Configure with the `healthPath`, `healthBaseUrl` and `getHealth` options.
       Default: See [`collectMetrics`](#collectmetricsoptions).
     - `healthPath` (*string*): Path to use for the health check.
       Default: `/`.
-    - `healthBaseUrl` (*string*): Use a different `baseUrl` for the health check.
-      Default: use the same `baseUrl` as the client.
+    - `healthPrefixUrl` (*string*): Use a different `prefixUrl` for the health check.
+      Default: use the same `prefixUrl` as the client.
     - `getHealth`: Function called for the `health` method.
       Receives the client instance and the `healthPath` as arguments.
       Default: a GET request to `healthPath`.
@@ -368,7 +368,7 @@ Each handler is passed the following options in the first argument:
 [Got `json`]: https://github.com/sindresorhus/got#json
 [Got `cache`]: https://github.com/sindresorhus/got#cache
 [Got `hooks`]: https://github.com/sindresorhus/got#hooks
-[Got `baseUrl`]: https://github.com/sindresorhus/got#baseurl
+[Got `prefixUrl`]: https://github.com/sindresorhus/got#prefixurl
 [`got.extend`]: https://github.com/sindresorhus/got#gotextendoptions
 [URL origin]: https://nodejs.org/api/url.html#url_url_strings_and_url_objects
 [Logger]: https://github.com/meltwater/mlabs-logger

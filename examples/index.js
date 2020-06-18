@@ -20,7 +20,7 @@ const envVars = [
 ]
 
 const defaultOptions = {
-  baseUrl: 'https://httpbin.org'
+  prefixUrl: 'https://httpbin.org'
 }
 
 if (require.main === module) {
