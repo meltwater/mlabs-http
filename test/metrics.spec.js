@@ -27,7 +27,7 @@ test.beforeEach((t) => {
 
   const client = (t, options = {}) =>
     createClient({
-      extend: { retry: { retries: 0 } },
+      extend: { retry: { limit: 0 } },
       prefixUrl: api,
       resolveWithFullResponse: true,
       metricRegistry: register,
