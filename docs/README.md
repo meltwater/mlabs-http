@@ -52,8 +52,6 @@ Create an [HttpClient] with an API compatible with [Got].
       Default: none.
     - `bearerToken` (*string*): Token to send in the `authorization` header.
       Default: none.
-    - `json` (*boolean*): The [Got `json`] option.
-      Default: true.
     - `cache` (*boolean*): The [Got `cache`] option.
       Default: none.
     - `hooks` (*boolean*): The [Got `hooks`] option.
@@ -73,8 +71,8 @@ import createHttpClient from '@meltwater/mlabs-http'
 
 const http = createHttpClient({origin: 'https://httpbin.org'})
 
-const body = await http.get('/get')
-await http.post('/post', {body: {foo: 'bar'}})
+const body = await http.get('get')
+await http.post('post', { json: { foo: 'bar' } })
 ```
 
 ##### Full response
@@ -83,21 +81,16 @@ await http.post('/post', {body: {foo: 'bar'}})
 import createHttpClient from '@meltwater/mlabs-http'
 
 const http = createHttpClient({
-  resolveWithFullResponse: true,
+  resolveBodyOnly: false,
   origin: 'https://httpbin.org'
 })
 
-const { body, statusCode } = await http.get('/get')
+const { body, statusCode } = await http.get('get')
 
 // or per request
 
-const http = createHttpClient({
-  resolveWithFullResponse: false,
-  origin: 'https://httpbin.org'
-})
-
-const { body, statusCode } = await http.get('/get', {
-  resolveWithFullResponse: true
+const { body, statusCode } = await http.get('get', {
+  resolveBodyOnly: false
 })
 ```
 
@@ -111,7 +104,7 @@ const http = createHttpClient({
   origin: 'https://httpbin.org'
 })
 
-const body = await http.get('/get')
+const body = await http.get('get')
 ```
 
 ##### Control logging
@@ -122,16 +115,16 @@ import createHttpClient from '@meltwater/mlabs-http'
 const http = createHttpClient({
   origin: 'https://httpbin.org',
   responseLogLevel: 'info',
-  getLogResponseProps: ({body}) => ({myIp: body.origin})
+  getLogResponseProps: ({ body }) => ({ myIp: body.origin })
 })
 
-const body = await http.get('/get', {
-  meta: {user: {name: 'foo'}},
-  logProps: {userId: 123}
+const body = await http.get('get', {
+  meta: { user: { name: 'foo' } },
+  logProps: { userId: 123 }
 })
 
-// all logs have {userId: 123, meta: {user: {name: 'foo'}}}
-// success log also has {myIp: '127.0.0.1'}
+// all logs have { userId: 123, meta: { user: { name: 'foo' } } }
+// success log also has { myIp: '127.0.0.1' }
 ```
 
 ---
@@ -208,8 +201,8 @@ using [`registerClient`](#registerclientcontainer-client).
 
 ```js
 registerClients(container, {
-  foo: {origin: 'https://example.com'},
-  {token: 'auth-token'}
+  foo: { origin: 'https://example.com' },
+  { token: 'auth-token' }
 })
 
 const client = container.resolve('fooClient')
@@ -270,17 +263,14 @@ Provides an additional method `health` which takes no arguments
 and resolves `true` or rejects.
 Configure with the `healthPath`, `healthPrefixUrl` and `getHealth` options.
 
-- Methods return a Promise with the response body
-  and not the whole Got response object
-  (this is different then the default Got behavior).
-  Use `resolveWithFullResponse` to get the full response.
+- The default `responseType` is `json`.
+- The default for `resolveBodyOnly` is `true`.
 - All methods have a `meta` option to log additional properties to the `meta` key.
 - All methods have a `logProps` option to log additional properties at the top-level.
 - All methods have a `resourceName` option to group dynamic requests,
   e.g., if `url=/api/users/123` then set `resourceName=/api/users`.
 - All methods have these additional options, which may be set per-request
   to override the default from the constructor (see below):
-    - `resolveWithFullResponse`
     - `responseLogLevel`
     - `willLogOptions`
     - `willLogResponseProps`
@@ -300,7 +290,7 @@ Configure with the `healthPath`, `healthPrefixUrl` and `getHealth` options.
     - `metricPrefix` (*object*): Prefix prepend to all metric names.
       Default: See [`collectMetrics`](#collectmetricsoptions).
     - `healthPath` (*string*): Path to use for the health check.
-      Default: `/`.
+      Default: `''`.
     - `healthPrefixUrl` (*string*): Use a different `prefixUrl` for the health check.
       Default: use the same `prefixUrl` as the client.
     - `getHealth`: Function called for the `health` method.
@@ -312,9 +302,6 @@ Configure with the `healthPath`, `healthPrefixUrl` and `getHealth` options.
       Default: `x-request-id`.
     - `reqNameHeader` (*string*): Name of the header to use for the request name.
       Default: `x-request-name`.
-    - `resolveWithFullResponse` (*boolean*): If true, return the full response from [Got],
-      otherwise only return the response body.
-      Default: false.
     - `responseLogLevel` (*string*): Log level to log successful responses.
       If this level is active, then successful responses
       will be logged according to the other log response options.
