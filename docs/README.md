@@ -265,6 +265,8 @@ Configure with the `healthPath`, `healthPrefixUrl` and `getHealth` options.
 
 - The default `responseType` is `json`.
 - The default for `resolveBodyOnly` is `true`.
+- An error `err` thrown from a request will have `err.statusCode` set
+  (copied from `err.response.statusCode`).
 - All methods have a `meta` option to log additional properties to the `meta` key.
 - All methods have a `logProps` option to log additional properties at the top-level.
 - All methods have a `resourceName` option to group dynamic requests,

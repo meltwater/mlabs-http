@@ -49,13 +49,13 @@ test('get', async (t) => {
   nock(api).get(`/bad/${id}`).reply(500, { data })
   const http = client(t)
   await Promise.all([
-    http.get(`/good/${id}`, { resourceName: '/good' }),
-    http.get(`/good/${id}`, { resourceName: '/good' })
+    http.get(`good/${id}`, { resourceName: '/good' }),
+    http.get(`good/${id}`, { resourceName: '/good' })
   ])
   try {
-    await http.get(`/bad/${id}`, { resourceName: '/bad' })
+    await http.get(`bad/${id}`, { resourceName: '/bad' })
   } catch (err) {}
-  http.get(`/good/${id}`, { resourceName: '/good' }).catch(() => {})
+  http.get(`good/${id}`, { resourceName: '/good' }).catch(() => {})
   const metrics = t.context.register.metrics()
 
   // Remove metric lines that depends on millisecond timing
