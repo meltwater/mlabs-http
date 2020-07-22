@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [2.0.0] / 2020-07-21
+
+### Changed
+
+- (**Breaking**) Update to Got v11.
+  - Replaced `baseUrl` with `prefixUrl` to match Got update.
+  - Replaced `healthBaseUrl` with `healthPrefixUrl` to match.
+  - Remove `json` option in favor
+    of passing `responseType` in `extend` option.
+    The default `responseType` is `json`.
+  - Metrics handler `data` property `fromCache` renamed to `isFromCache`.
+  - The new Got error structure now puts many properties that use to be on the
+    root object under `response`.
+    The directly effects the errors thrown by the `HttpClient`.
+    However, the `statusCode` is now copied to the root error object
+    for convenience.
+
 ## [1.6.0] / 2020-06-18
 
 ### Changed
@@ -80,7 +97,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 [makenew-node-lib]: https://github.com/meltwater/makenew-node-lib
 
-[Unreleased]: https://github.com/meltwater/mlabs-http/compare/v1.6.0...HEAD
+[Unreleased]: https://github.com/meltwater/mlabs-http/compare/v2.0.0...HEAD
+[2.0.0]: https://github.com/meltwater/mlabs-http/compare/v1.6.0...v2.0.0
 [1.6.0]: https://github.com/meltwater/mlabs-http/compare/v1.5.0...v1.6.0
 [1.5.0]: https://github.com/meltwater/mlabs-http/compare/v1.4.0...v1.5.0
 [1.4.0]: https://github.com/meltwater/mlabs-http/compare/v1.3.0...v1.4.0
