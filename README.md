@@ -12,11 +12,7 @@ HTTP client wrapper around [Got].
 
 ## Description
 
-The client provides an identical API to Got with two exceptions:
-
-- JSON mode is enabled by default.
-- Methods only return the request body
-  unless `resolveWithFullResponse` is set.
+The client provides an almost identical API to Got.
 
 All requests are wrapped with proper logging and error handling.
 Logging can be customized per-client and per-request.
