@@ -56,7 +56,7 @@ test('get', async (t) => {
     await http.get(`bad/${id}`, { resourceName: '/bad' })
   } catch (err) {}
   http.get(`good/${id}`, { resourceName: '/good' }).catch(() => {})
-  const metrics = t.context.register.metrics()
+  const metrics = await t.context.register.metrics()
 
   // Remove metric lines that depends on millisecond timing
   const m = metrics.split('\n')
