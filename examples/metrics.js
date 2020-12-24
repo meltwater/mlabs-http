@@ -2,7 +2,7 @@ import { Registry } from 'prom-client'
 
 import { createHttpClient, collectMetrics } from '../lib'
 
-export default ({ log, prefixUrl }) => async (url = '/get') => {
+export default ({ log, prefixUrl }) => async (url = 'get') => {
   const register = new Registry()
   collectMetrics({
     register,
@@ -15,7 +15,7 @@ export default ({ log, prefixUrl }) => async (url = '/get') => {
 
   const client = createHttpClient({ prefixUrl, metricRegistry: register, log })
 
-  const get = async (url = '/get') => {
+  const get = async (url = 'get') => {
     try {
       return await client.get(url, { resourceName: url })
     } catch (err) {
@@ -23,7 +23,7 @@ export default ({ log, prefixUrl }) => async (url = '/get') => {
     }
   }
 
-  await Promise.all([get(), get('/foo'), get()])
+  await Promise.all([get(), get('foo'), get()])
 
   get().catch(() => {})
   return register.metrics()
