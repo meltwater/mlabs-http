@@ -45,7 +45,7 @@ $ yarn add @meltwater/mlabs-http
 **See the complete [API documentation](./docs) and [working examples](./examples).**
 
 ```js
-import createHttpClient from '@meltwater/mlabs-http'
+import { createHttpClient } from '@meltwater/mlabs-http'
 
 const logResponse = async () => {
   const http = createHttpClient({origin: 'https://httpbin.org'})
@@ -60,7 +60,7 @@ logResponse().catch(err => { console.error(err) })
 
 ```js
 import { Registry } from 'prom-client'
-import createHttpClient, { collectMetrics } from '@meltwater/mlabs-http'
+import { createHttpClient, collectMetrics } from '@meltwater/mlabs-http'
 
 const register = new Registry()
 
