@@ -110,7 +110,7 @@
     "standard": "^16.0.2"
   },
   "dependencies": {
-    "@meltwater/mlabs-logger": "^6.0.0",
+    "@meltwater/mlabs-logger": "^8.0.0-alpha.1",
     "awilix": "^4.0.0",
     "got": "^11.3.0",
     "prom-client": "^13.0.0",

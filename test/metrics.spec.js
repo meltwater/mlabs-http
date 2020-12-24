@@ -2,7 +2,7 @@ import test from 'ava'
 import nock from 'nock'
 import { v4 as uuidv4 } from 'uuid'
 import { Registry } from 'prom-client'
-import createLogger from '@meltwater/mlabs-logger'
+import { createLogger } from '@meltwater/mlabs-logger'
 
 import { createHttpClient, collectMetrics } from '../index.js'
 
