@@ -2,7 +2,7 @@
 
 ## Top-Level Exports
 
-- [`createClient(options)`](#createclientoptions)
+- [`createHttpClient(options)`](#createhttpclientoptions)
 - [`collectMetrics(options)`](#collectmetricsoptions)
 - [`registerClient(container, client)`](#registerclientcontainer-client)
 - [`registerClients(container, clients, defaults)`](#registerclientscontainer-clients-defaults)
@@ -19,7 +19,7 @@ Every function described above is a top-level export.
 You can import any of them like this:
 
 ```js
-import { createClient } from '@meltwater/mlabs-http'
+import { createHttpClient } from '@meltwater/mlabs-http'
 ```
 
 ### Constants
@@ -27,7 +27,7 @@ import { createClient } from '@meltwater/mlabs-http'
 - `metricNames`: Un-prefixed metric names.
 
 ---
-### `createClient(options)`
+### `createHttpClient(options)`
 
 Create an [HttpClient] with an API compatible with [Got].
 
@@ -248,7 +248,7 @@ collectMetrics({
   }
 })
 
-const http = createClient({ metricRegistry: register })
+const http = createHttpClient({ metricRegistry: register })
 await http.get('/get')
 
 register.metrics()

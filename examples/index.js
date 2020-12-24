@@ -2,9 +2,9 @@ import path from 'path'
 
 import createExamples from '@meltwater/examplr'
 
-import get from './get'
-import post from './post'
-import metrics from './metrics'
+import get from './get.js'
+import post from './post.js'
+import metrics from './metrics.js'
 
 export const examples = {
   metrics,

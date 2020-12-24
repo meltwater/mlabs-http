@@ -1,6 +1,6 @@
 import { Registry } from 'prom-client'
 
-import { createClient, collectMetrics } from '../lib'
+import { createHttpClient, collectMetrics } from '../lib'
 
 export default ({ log, prefixUrl }) => async (url = '/get') => {
   const register = new Registry()
@@ -13,7 +13,7 @@ export default ({ log, prefixUrl }) => async (url = '/get') => {
     }
   })
 
-  const client = createClient({ prefixUrl, metricRegistry: register, log })
+  const client = createHttpClient({ prefixUrl, metricRegistry: register, log })
 
   const get = async (url = '/get') => {
     try {

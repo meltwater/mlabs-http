@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from 'uuid'
 import { Registry } from 'prom-client'
 import createLogger from '@meltwater/mlabs-logger'
 
-import { createClient, collectMetrics } from '../lib'
+import { createHttpClient, collectMetrics } from '../lib'
 
 const metricPrefix = 'test_'
 
@@ -26,7 +26,7 @@ test.beforeEach((t) => {
   const api = 'https://example.com'
 
   const client = (t, options = {}) =>
-    createClient({
+    createHttpClient({
       extend: { retry: { limit: 0 } },
       prefixUrl: api,
       resolveWithFullResponse: true,

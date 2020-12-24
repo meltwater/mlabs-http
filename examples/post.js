@@ -1,7 +1,7 @@
-import { createClient } from '../lib'
+import { createHttpClient } from '../lib'
 
 export default ({ log, prefixUrl }) => async (url = '/post') => {
-  const client = createClient({ prefixUrl, log })
+  const client = createHttpClient({ prefixUrl, log })
   return client.post(url, {
     body: { foo: 'bar' },
     logProps: { fooId: 123 },
