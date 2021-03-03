@@ -11,6 +11,7 @@
     - `metricsHandleStart`
     - `metricsHandleDone`
     - `metricsHandleFail`
+    - `metricsHandleRetry`
     - `metricsHandleSuccess`
 
 ### Importing
@@ -350,6 +351,7 @@ Each handler is passed the following options in the first argument:
 - `metricsHandleStart`: Call immediately before request is started.
 - `metricsHandleDone`: Call when request completes or errors.
 - `metricsHandleFail`: Call when request fails; passed `err` property.
+- `metricsHandleRetry`: Call when request retries; passed `err` property.
 - `metricsHandleSuccess`: Call when request succeeds; passed `data` property.
 
 [HttpClient]: #httpclient
