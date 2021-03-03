@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [3.1.0] / 2021-03-03
+
+### Added
+
+- New metric `requests_retried_total.`
+- New metric hook `metricsHandleRetry`.
+- New `retry` event emitted.
+
+### Changed
+
+- Log `statusCode` on retry warning.
+- Update quick-lru to v6.
+
 ## [3.0.0] / 2020-12-24
 
 ### Added
@@ -122,7 +135,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 [makenew-node-lib]: https://github.com/meltwater/makenew-node-lib
 
-[Unreleased]: https://github.com/meltwater/mlabs-http/compare/v3.0.0...HEAD
+[Unreleased]: https://github.com/meltwater/mlabs-http/compare/v3.1.0...HEAD
+[3.1.0]: https://github.com/meltwater/mlabs-http/compare/v3.0.0...v3.1.0
 [3.0.0]: https://github.com/meltwater/mlabs-http/compare/v2.0.1...v3.0.0
 [2.0.1]: https://github.com/meltwater/mlabs-http/compare/v2.0.0...v2.0.1
 [2.0.0]: https://github.com/meltwater/mlabs-http/compare/v1.6.0...v2.0.0
