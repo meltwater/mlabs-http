@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ### Changed
 
 - Log `statusCode` on retry warning.
+- Metric `request_duration_milliseconds` now includes retry timings.
 - Update quick-lru to v6.
 
 ## [3.0.0] / 2020-12-24
