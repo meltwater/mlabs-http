@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [3.1.1] / 2021-03-03
+
+### Fixed
+
+- Downgrade quick-lru to v5 to avoid ES module issue.
+
 ## [3.1.0] / 2021-03-03
 
 ### Added
@@ -136,7 +142,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 [makenew-node-lib]: https://github.com/meltwater/makenew-node-lib
 
-[Unreleased]: https://github.com/meltwater/mlabs-http/compare/v3.1.0...HEAD
+[Unreleased]: https://github.com/meltwater/mlabs-http/compare/v3.1.1...HEAD
+[3.1.1]: https://github.com/meltwater/mlabs-http/compare/v3.1.0...v3.1.1
 [3.1.0]: https://github.com/meltwater/mlabs-http/compare/v3.0.0...v3.1.0
 [3.0.0]: https://github.com/meltwater/mlabs-http/compare/v2.0.1...v3.0.0
 [2.0.1]: https://github.com/meltwater/mlabs-http/compare/v2.0.0...v2.0.1

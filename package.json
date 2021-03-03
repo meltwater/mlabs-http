@@ -125,7 +125,7 @@
     "awilix": "^4.0.0",
     "got": "^11.3.0",
     "prom-client": "^13.0.0",
-    "quick-lru": "^6.0.0",
+    "quick-lru": "^5.0.0",
     "uuid": "^8.1.0"
   },
   "devDependencies": {
