@@ -58,6 +58,8 @@ Create an [HttpClient] with an API compatible with [Got].
     - `hooks` (*boolean*): The [Got `hooks`] option.
       Default: none.
     - `extend` (*object*): Passed to [`got.extend`] when creating the Got instance.
+    - `got` (*object*): Got instance to use.
+      Default: `got` imported from got.
 
 #### Returns
 
