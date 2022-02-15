@@ -123,7 +123,7 @@
   },
   "dependencies": {
     "@meltwater/mlabs-logger": "^9.1.1",
-    "awilix": "^4.0.0",
+    "awilix": "^6.1.0",
     "got": "^11.3.0",
     "prom-client": "^14.0.1",
     "quick-lru": "^5.0.0",
