@@ -52,14 +52,12 @@
   "ava": {
     "files": [
       "**/*.spec.js",
-      "!dist/**/*",
       "!package/**/*"
     ]
   },
   "nyc": {
     "exclude": [
       "**/index.js",
-      "dist/**/*.js",
       "package/**/*.js",
       "examples/**/*.js",
       "**/*.spec.js"

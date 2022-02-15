@@ -158,14 +158,6 @@ View them with
 $ yarn run
 ```
 
-#### Production build
-
-Lint, test, and transpile the production build to `dist` with
-
-```
-$ yarn run dist
-```
-
 ##### Publishing a new release
 
 Release a new version using [`npm version`][npm version].
