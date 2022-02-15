@@ -105,7 +105,7 @@ jobs:
     description: Publish Node.js package
     executor:
       name: node
-      tag: erbium
+      tag: fermium
     steps:
       - setup
       - install
@@ -129,14 +129,6 @@ workflows:
           name: test-fermium-alpine
           tag: fermium-alpine
           is_alpine: true
-      - test:
-          name: test-erbium
-          tag: erbium
-          upload_coverage: true
-      - test:
-          name: test-erbium-alpine
-          tag: erbium-alpine
-          is_alpine: true
       - publish:
           filters:
             branches:
@@ -146,5 +138,3 @@ workflows:
             - test-latest-alpine
             - test-fermium
             - test-fermium-alpine
-            - test-erbium
-            - test-erbium-alpine
