@@ -129,6 +129,14 @@ workflows:
           name: test-fermium-alpine
           tag: fermium-alpine
           is_alpine: true
+      - test:
+          name: test-erbium
+          tag: fermium
+          upload_coverage: true
+      - test:
+          name: test-erbium-alpine
+          tag: fermium-alpine
+          is_alpine: true
       - publish:
           filters:
             branches:
