@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/).
 
+## [4.0.0] / 2022-02-14
+
+### Changed
+
+- (**Breaking**) Update to Got version 12.
+    - Required Node.js >=14.
+    - This package is now pure ESM.
+- Update to quick-lru v6.
+- Update to mlabs-logger v9.
+- Update to awilix v4.
+- Update to prom-client v14.
+
 ## [3.2.0] / 2021-05-09
 
 ### Added
@@ -148,7 +160,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 [makenew-node-lib]: https://github.com/meltwater/makenew-node-lib
 
-[Unreleased]: https://github.com/meltwater/mlabs-http/compare/v3.2.0...HEAD
+[Unreleased]: https://github.com/meltwater/mlabs-http/compare/v4.0.0...HEAD
+[4.0.0]: https://github.com/meltwater/mlabs-http/compare/v3.2.0...v4.0.0
 [3.2.0]: https://github.com/meltwater/mlabs-http/compare/v3.1.1...v3.2.0
 [3.1.1]: https://github.com/meltwater/mlabs-http/compare/v3.1.0...v3.1.1
 [3.1.0]: https://github.com/meltwater/mlabs-http/compare/v3.0.0...v3.1.0
